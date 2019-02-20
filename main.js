@@ -123,7 +123,7 @@ function getFrame() {
 
         var nm = names[0]
 
-        document.getElementById('status').innerHTML = "predicted class: " + nm
+        document.getElementById('status').innerHTML = "predicted class: "
         //set the table 
         //setTable(names, probs)
         var img = document.getElementById('img_target');
