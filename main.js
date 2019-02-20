@@ -122,7 +122,7 @@ function getFrame() {
         const names = getClassNames(indices)
 
 
-        document.getElementById('status').innerHTML = 'Predicted class';
+        document.getElementById('status').innerHTML = 'Modelssss Loaded';
         //set the table 
         //setTable(names, probs)
         var img = document.getElementById('img_target');
