@@ -17,11 +17,10 @@ $(function() {
     canvas.backgroundColor = '#ffffff';
     canvas.isDrawingMode = 0;
     canvas.freeDrawingBrush.color = "black";
-    canvas.freeDrawingBrush.width = 10;
+    canvas.freeDrawingBrush.width = 5;
     canvas.renderAll();
     //setup listeners 
     canvas.on('mouse:up', function(e) {
-        getFrame();
         mousePressed = false
     });
     canvas.on('mouse:down', function(e) {
@@ -122,8 +121,12 @@ function getFrame() {
         const probs = findTopValues(pred, 5)
         const names = getClassNames(indices)
 
+        document.getElementById('status').innerHTML = names
         //set the table 
-        setTable(names, probs)
+        //setTable(names, probs)
+        var img = document.getElementById('img_target');
+        img.alt="";
+        img.src='img0.png';
     }
 
 }
@@ -232,6 +235,10 @@ async function start(cur_mode) {
     
     //load the class names
     await loadDict()
+}
+
+function change_image() {
+    getFrame();
 }
 
 /*
