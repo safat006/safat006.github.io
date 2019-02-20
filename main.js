@@ -121,7 +121,7 @@ function getFrame() {
         const probs = findTopValues(pred, 5)
         const names = getClassNames(indices)
 
-        document.getElementById('status').innerHTML = names
+        document.getElementById('status').innerHTML = names[0]
         //set the table 
         //setTable(names, probs)
         var img = document.getElementById('img_target');
