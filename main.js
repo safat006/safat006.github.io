@@ -122,7 +122,7 @@ function getFrame() {
         const names = getClassNames(indices)
 
 
-        var prediction = document.getElementById('prediction')
+        let prediction = document.getElementById('prediction')
         prediction.innerHTML = names[0];
         //set the table 
         //setTable(names, probs)
