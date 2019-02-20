@@ -124,6 +124,7 @@ function getFrame() {
 
         let prediction = document.getElementById('prediction')
         prediction.innerHTML = names[0];
+        alert(names[0])
         //set the table 
         //setTable(names, probs)
         var img = document.getElementById('img_target');
