@@ -45,16 +45,6 @@ function draw_coordinate(list, x, y){
     document.getElementById("y").innerHTML = y;
 
     var customer = {contact_name :"Scott",company_name:"HP"};
-    $.ajax({
-        type: "POST",
-        data :JSON.stringify(customer),
-        //url: "https://github.com/safat006/safat006.github.io/api/",
-        url: "https://api.github.com/users/safat006/"
-        contentType: "application/json",
-        success: function (result) {
-        console.log(result);    
-        }
-    });
 
 }
 
@@ -272,6 +262,7 @@ function change_image() {
 
 
 function download(){
+    console.log('done')
     document.getElementById('yoo').innerHTML = 'done'
     var data = {
         key: 'value'
