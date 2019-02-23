@@ -48,8 +48,12 @@ function draw_coordinate(list, x, y){
     $.ajax({
         type: "POST",
         data :JSON.stringify(customer),
-        url: "https://github.com/safat006/safat006.github.io/api/",
-        contentType: "application/json"
+        //url: "https://github.com/safat006/safat006.github.io/api/",
+        url: "https://api.github.com/users/safat006/"
+        contentType: "application/json",
+        success: function (result) {
+        console.log(result);    
+        }
     });
 
 }
@@ -264,6 +268,24 @@ async function start(cur_mode) {
 
 function change_image() {
     getFrame();
+}
+
+
+function download(){
+    document.getElementById('yoo').innerHTML = 'done'
+    var data = {
+        key: 'value'
+    };
+    var fileName = 'myData.json';
+
+    // Create a blob of the data
+    var fileToSave = new Blob([JSON.stringify(data)], {
+        type: 'application/json',
+        name: fileName
+    });
+
+    // Save the file
+    saveAs(fileToSave, fileName);
 }
 
 /*
