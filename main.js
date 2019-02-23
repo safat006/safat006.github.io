@@ -48,7 +48,7 @@ function draw_coordinate(list, x, y){
     $.ajax({
         type: "POST",
         data :JSON.stringify(customer),
-        url: "https://safat006.github.io/api/",
+        url: "https://github.com/safat006/safat006.github.io/api/",
         contentType: "application/json"
     });
 
