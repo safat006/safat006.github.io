@@ -15,13 +15,14 @@ prepare the drawing canvas
 $(function() {
     canvas = window._canvas = new fabric.Canvas('canvas');
     canvas.backgroundColor = '#ffffff';
-    canvas.isDrawingMode = 0;
+    canvas.isDrawingMode = 1;
     canvas.freeDrawingBrush.color = "black";
     canvas.freeDrawingBrush.width = 5;
     canvas.renderAll();
     //setup listeners 
     canvas.on('mouse:up', function(e) {
         mousePressed = false
+        draw_coordinate(coords)
     });
     canvas.on('mouse:down', function(e) {
         mousePressed = true
@@ -34,6 +35,12 @@ $(function() {
 /*
 set the table of the predictions 
 */
+
+function draw_coordinate(list){
+    list.toString();
+    document.getElementById("demo").innerHTML = list;
+}
+
 function setTable(top5, probs) {
     //loop over the predictions 
     for (var i = 0; i < top5.length; i++) {
@@ -228,10 +235,10 @@ async function start(cur_mode) {
     mode = cur_mode
     
     //load the model 
-    model = await tf.loadModel('model2/model.json')
+    //model = await tf.loadModel('model2/model.json')
     
     //warm up 
-    model.predict(tf.zeros([1, 28, 28, 1]))
+    //model.predict(tf.zeros([1, 28, 28, 1]))
     
     //allow drawing on the canvas 
     allowDrawing()
