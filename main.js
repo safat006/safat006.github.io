@@ -45,12 +45,13 @@ function draw_coordinate(list, x, y){
     document.getElementById("y").innerHTML = y;
 
     var customer = {contact_name :"Scott",company_name:"HP"};
-    $.ajax({
+    await $.ajax({
         type: "POST",
         data :JSON.stringify(customer),
-        url: "https://safat006.github.io:8000/api/",
+        url: "https://safat006.github.io/api/",
         contentType: "application/json"
     });
+
 }
 
 function setTable(top5, probs) {
