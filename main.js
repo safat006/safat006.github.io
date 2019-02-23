@@ -262,7 +262,7 @@ function change_image() {
 
 
 function download() {
-    console.log('done')
+    console.log('download')
     document.getElementById('yoo').innerHTML = 'done'
     
     var data = {
