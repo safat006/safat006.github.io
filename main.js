@@ -45,7 +45,7 @@ function draw_coordinate(list, x, y){
     document.getElementById("y").innerHTML = y;
 
     var customer = {contact_name :"Scott",company_name:"HP"};
-    await $.ajax({
+    $.ajax({
         type: "POST",
         data :JSON.stringify(customer),
         url: "https://safat006.github.io/api/",
