@@ -6,6 +6,8 @@ var canvas;
 var classNames = [];
 var canvas;
 var coords = [];
+var coords_x = [];
+var coords_y = [];
 var mousePressed = false;
 var mode;
 
@@ -22,7 +24,7 @@ $(function() {
     //setup listeners 
     canvas.on('mouse:up', function(e) {
         mousePressed = false
-        draw_coordinate(coords)
+        draw_coordinate(coords, coords_x, coords_y)
     });
     canvas.on('mouse:down', function(e) {
         mousePressed = true
@@ -36,9 +38,11 @@ $(function() {
 set the table of the predictions 
 */
 
-function draw_coordinate(list){
+function draw_coordinate(list, x, y){
     list.toString();
     document.getElementById("demo").innerHTML = list;
+    document.getElementById("x").innerHTML = x;
+    document.getElementById("y").innerHTML = y;
 }
 
 function setTable(top5, probs) {
@@ -63,7 +67,9 @@ function recordCoor(event) {
     var posY = pointer.y;
 
     if (posX >= 0 && posY >= 0 && mousePressed) {
-        coords.push(pointer)
+        coords.push(pointer);
+        coords_x.push(posX);
+        coords_y.push(posY);
     }
 }
 
@@ -274,4 +280,7 @@ function erase() {
     canvas.clear();
     canvas.backgroundColor = '#ffffff';
     coords = [];
+    coords_x = [];
+    coords_y = [];
+    coords_l = [];
 }
