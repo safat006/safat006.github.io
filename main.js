@@ -43,6 +43,14 @@ function draw_coordinate(list, x, y){
     document.getElementById("demo").innerHTML = list;
     document.getElementById("x").innerHTML = x;
     document.getElementById("y").innerHTML = y;
+
+    var customer = {contact_name :"Scott",company_name:"HP"};
+    $.ajax({
+        type: "POST",
+        data :JSON.stringify(customer),
+        url: "api/Customer",
+        contentType: "application/json"
+    });
 }
 
 function setTable(top5, probs) {
