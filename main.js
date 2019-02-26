@@ -10,6 +10,8 @@ var coords_x = [];
 var coords_y = [];
 var mousePressed = false;
 var mode;
+var single_stroke = []
+var total_stroke = []
 
 /*
 prepare the drawing canvas 
@@ -43,6 +45,11 @@ function draw_coordinate(list, x, y){
     document.getElementById("demo").innerHTML = list;
     document.getElementById("x").innerHTML = x;
     document.getElementById("y").innerHTML = y;
+    single_stroke.push(x);
+    single_stroke.push(y);
+
+    total_stroke.push(single_stroke)
+    single_stroke = []
 
     var customer = {contact_name :"Scott",company_name:"HP"};
 
@@ -266,9 +273,10 @@ function download() {
     document.getElementById('yoo').innerHTML = 'done'
     
     var data = {
-        key: 'value'
+        key: 'value',
+        drawing: total_stroke
     };
-    var fileName = 'myData.json';
+    var fileName = 'user_input.json';
 
     // Create a blob of the data
     var fileToSave = new Blob([JSON.stringify(data)], {
@@ -306,5 +314,7 @@ function erase() {
     coords = [];
     coords_x = [];
     coords_y = [];
-    coords_l = [];
+
+    single_stroke = [];
+    total_stroke = [];
 }
